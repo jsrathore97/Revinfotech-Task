@@ -1,0 +1,3 @@
+Ngx Pagination Package : -    npm i ngx-pagination
+
+Ngx Spinner Package    : -    npm i ngx-spinner
