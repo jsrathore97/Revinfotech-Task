@@ -1,0 +1,14 @@
+<app-header></app-header>
+<h1>Before Use Custom UpperCase Directive</h1>
+<div *ngFor="let data of listArray">
+    <span style="margin-left: 100px;">
+        {{data.name}}
+    </span>
+</div> <hr>
+
+<h1>After Use Custom UpperCase Directive</h1>
+<div *ngFor="let data of listArray" style="margin-left: 100px;">
+    <span appUppercase>
+        {{data.name}}
+    </span>
+</div>

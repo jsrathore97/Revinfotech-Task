@@ -1,0 +1,88 @@
+    <!-- <div appUppercase> hiii</div> -->
+<app-header></app-header>
+
+    <form #userForm="ngForm">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="border: 1px solid white; background-color: aliceblue; padding-top: 25px; padding-bottom: 5px; border-radius: 5px;">
+            <div>
+                <label for="">First Name :<span style="color: red;">*</span></label>
+                <input type="text" [(ngModel)]="fname" placeholder=" First  Name  " class="form-control" name="first_name"
+                ngModel #fname___="ngModel" [ngClass]="{ 'is-invalid': fname___.invalid && (fname___.dirty || fname___.touched)}"   required
+                >
+                <div *ngIf="fname___.invalid && (fname___.dirty || fname___.touched) " class="invalid-feedback">
+                    <div *ngIf="fname___">First Name Is Required</div>
+                </div>
+            </div>
+
+            <div>
+                <label for="">Last Name :<span style="color: red;">*</span></label>
+                <input type="text" [(ngModel)]="lname" placeholder=" Last Name" name="last_name" class="form-control"
+                ngModel #lname___="ngModel" [ngClass]="{ 'is-invalid': lname___.invalid && (lname___.dirty || lname___.touched)}"   required
+                >
+                <div *ngIf="lname___.invalid && (lname___.dirty || lname___.touched) " class="invalid-feedback">
+                    <div *ngIf="lname___">Last Name Is Required</div>
+                </div>
+           
+            </div>
+
+            <div>
+                <label for="">Gender :<span style="color: red;">*</span></label>
+                <select class="form-control" [(ngModel)]="gender" name="gender_" 
+                ngModel #genderSelect="ngModel" [ngClass]="{ 'is-invalid': genderSelect.invalid && (genderSelect.dirty || genderSelect.touched)}"   required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <div *ngIf="genderSelect.invalid && (genderSelect.dirty || genderSelect.touched) " class="invalid-feedback">
+                    <div *ngIf="genderSelect">Gender Is Required</div>
+                </div>
+            </div>
+
+            <div>
+                <label for="">Phone No.</label>
+                <input OnlynumberDirective  maxlength="10" id="digit-only-with-max-length" type="text" [(ngModel)]="Phone" name="phone_no"  placeholder=" Phone No " class="form-control" >
+            </div>
+
+            <div>
+                <label for="">Email :<span style="color: red;">*</span></label>
+                <input type="text" [(ngModel)]="email" name="email_" placeholder=" Email  " class="form-control" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+                ngModel #email_="ngModel" [ngClass]="{ 'is-invalid': email_.invalid && (email_.dirty || email_.touched)}"   required>
+                <div *ngIf="email_.invalid && (email_.dirty || email_.touched) " class="invalid-feedback">
+                    <div *ngIf="email_.errors">Email Is Required & Enter valid Email Address</div>                </div>
+            </div>
+
+            <div>
+                <label for="">Account No. :<span style="color: red;">*</span></label>
+                <input type="text"  OnlynumberDirective  id="digit-only-with-max-length" [(ngModel)]="accountNo" name="account_no" placeholder=" Account Numbers  " class="form-control"
+                ngModel #accountNO_="ngModel" [ngClass]="{ 'is-invalid': accountNO_.invalid && (accountNO_.dirty || accountNO_.touched)}"   required>
+                <div *ngIf="accountNO_.invalid && (accountNO_.dirty || accountNO_.touched) " class="invalid-feedback">
+                    <div *ngIf="accountNO_.errors">Account Number Is Required</div> 
+               </div>
+            </div>
+            <div>
+                <label for="">IFSC Code :<span style="color: red;">*</span> <span style="margin-left: 170px; font-size: 11px;">(First Five Letter Alaphbate then Five Numeric Value After That use One Alaphbate)</span></label>
+                <input type="text" [(ngModel)]="ifsc" name="ifsc_code" placeholder=" Account Numbers  " class="form-control"
+                ngModel #ifsc_code_="ngModel" [ngClass]="{ 'is-invalid': ifsc_code_.invalid && (ifsc_code_.dirty || ifsc_code_.touched)}"  pattern="[A-Z]{5}[0-9]{5}[A-Z]{1}"   required>
+                <div *ngIf="ifsc_code_.invalid && (ifsc_code_.touched) " class="invalid-feedback">
+                    <div *ngIf="ifsc_code_.errors?.pattern">First Five Letter Alaphbate then Five Numeric Value After That use One Alaphbate. (Length 11)</div>
+              
+                 </div>
+        
+            </div>
+            <div>
+                <label for="">Notes</label>
+                <textarea name="" id="" cols="30" rows="10" [(ngModel)]="notesVal" name="noteval" placeholder="Enter Notes" style="width: 100%; height: 100px;"></textarea>
+            </div>
+            </div>
+
+           
+
+            <div style="text-align: center; margin-top: 15px;">
+                <button class="btn btn-primary" [disabled]="userForm.invalid" (click)="submitForm()" >Submit</button>
+            </div>
+            
+        </div>
+        <div class="col-md-3"></div>
+    <!-- </div> -->
+</form>
